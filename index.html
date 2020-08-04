@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Today's Sales</title>
+    <style media="screen">
+      h1,p{
+        text-align: center;
+      }
+      p{
+        margin-top: -20px;
+      }
+
+    </style>
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/svg/879/879757.svg">
+    <script src="ConfigForm.js">   </script>
+    <link rel="stylesheet" href="bea.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      var script_url= "https://script.google.com/macros/s/AKfycbyGgg64nF9MMGlQAzFO7qIHcDR7lmH-HE5sJkw6BNSKUIEukBg/exec";
+      var items = new Array();
+      function read_value() {
+        var url = script_url + "?action=read";
+      $.getJSON(url, function(json) {
+        for (var i = 0; i < json.records.length; i++) {
+          var item = [];
+          var currentD = new Date().toLocaleDateString();
+          var currentT = new Date().toLocaleTimeString();
+          item[0] = json.records[i].Event;
+          item[1] = json.records[i].Product;
+          var dating = json.records[i].Date;
+          dating = new Date(dating).toLocaleDateString();
+          item[2] = dating;
+          var timeStart = json.records[i].Time_Start;
+          timeStart = new Date(timeStart).toLocaleTimeString();
+          item[3] = timeStart;
+          var timeEnd = json.records[i].Time_End;
+          timeEnd = new Date(timeEnd).toLocaleTimeString();
+          item[4] = timeEnd;
+          item[5] = json.records[i].Host_Venue;
+          item[6] = json.records[i].Price_Full.toFixed(2);
+          items.push(item);
+
+          if(currentD == dating){
+            //alert("It's the day we doing "+item[0]);
+            var option = document.createElement("option");
+            option.text = item[0];
+            option.value = item[0];
+            var select = document.getElementById("EName");
+            select.appendChild(option);
+          }
+        }
+      });
+    }
+    function insert_value() {
+      var selx = document.getElementById("EName");
+      var activities = selx.options[selx.selectedIndex].value;
+      activities = activities.replace("&","_");
+      var totalRegister = document.getElementById('Register').value;
+      var totalShowUp = document.getElementById('Show_Up').value;
+      var fullPayment = parseFloat(document.getElementById('Fullx').innerHTML);
+      var fullQuantity = document.getElementById('Full').value;
+      var depositQuantity = document.getElementById('TDepositx').value;
+      var deposit = document.getElementById('TDeposit').value;
+      var KIVQuantity =   document.getElementById('TKIVx').value;
+      var KIVv = document.getElementById('TKIV').value;
+      var partialQuantity = document.getElementById('TPartialx').value;
+      var partial = document.getElementById('TPartial').value;
+      var OthersQuantity = document.getElementById('TOtherx').value;
+      var Others =document.getElementById('TOther').value;
+      var url = script_url+"?callback=ctrlq&EventName="+activities+
+                "&TotalRegister="+totalRegister+
+                "&TotalShowUp="+totalShowUp+
+                "&FullPayment="+fullPayment+
+                "&FullQuantity="+fullQuantity+
+                "&Deposit="+deposit+
+                "&DepositQuantity="+depositQuantity+
+                "&KIV="+KIVv+
+                "&KIVQuantity="+KIVQuantity+
+                "&Partial="+partial+
+                "&PartialQuantity="+partialQuantity+
+                "&Others="+Others+
+                "&OthersQuantity="+OthersQuantity+
+                "&action=insert";
+      var request = jQuery.ajax({
+        crossDomain: true,
+        url: url ,
+        method: "GET",
+        dataType: "jsonp"
+      });
+    }
+    // print the returned data
+    function ctrlq(e) {
+    alert(e.result);
+    location.reload(true);
+    location.replace("https://www.w3schools.com");
+    }
+    </script>
+  </head>
+  <body onload="dateNow()">
+        <div class="artboard">
+          <h1 id='title' >Event Report</h1>
+          <p id="Date"></p>
+          <form>
+            <select class="EName" id="EName" onchange="showMe()">
+              <option>Event Name</option>
+            </select>
+            <div class="display" style="visibility: 'hidden'">
+              <p id="Dating" style="text-align: left;line-height: 25px;">Date: </p>
+              <p id="Time" style="text-align: left;line-height: 25px;">Time: </p>
+              <p id="Venue / Hosting Platform" style="text-align: left;line-height: 25px;">Venue: </p>
+            </div>
+            <input type="number" id="Register" name="Register" placeholder="Total Register" onchange="comment()">
+            <input type="number" id="Show_Up"  placeholder="Total Show Up Rate" onchange="comment()"><br><br>
+            <p id='comment'></p>
+            <table>
+              <tr>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Price(RM)</th>
+                <th>Total(RM)</th>
+              </tr>
+              <tr>
+                <td>Full</td>
+                <td> <input type="number" id="Full" value="0" onchange="updateTotal(this)"> </td>
+                <td id="Fullx">0</td>
+                <td id="Total-1">0</td>
+              </tr>
+              <tr>
+                <td>Deposit</td>
+                <td> <input type="number" id="TDepositx" value="0"> </td>
+                <td> <input type="number" id="TDeposit" value="0" onchange="updateTotal(this)"> </td>
+                <td id="Total-2">0</td>
+              </tr>
+              <tr>
+                <td>KIV</td>
+                <td> <input type="number" id="TKIVx" value="0"> </td>
+                <td> <input type="number" id="TKIV" value="0" onchange="updateTotal(this)"> </td>
+                <td id="Total-3">0</td>
+              </tr>
+              <tr>
+                <td>Partial</td>
+                <td> <input type="number" id="TPartialx" value="0"> </td>
+                <td> <input type="number" id="TPartial" value="0" onchange="updateTotal(this)"> </td>
+                <td id="Total-4">0</td>
+              </tr>
+              <tr>
+                <td>Others</td>
+                <td> <input type="number" id="TOtherx" value="0"> </td>
+                <td> <input type="number" id="TOther" value="0" onchange="updateTotal(this)"> </td>
+                <td id="Total-5">0</td>
+              </tr>
+              <tr>
+                <td colspan="3" id="FinalAmt" style="text-align: right;">Total Amount(RM)</td>
+                <td id="Total-T">0</td>
+              </tr>
+            </table>
+          </form>
+          <button type="button" id="submit" onclick="checkNumber()">SUBMIT</button>
+        </div>
+
+  </body>
+</html>
