@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="bea3.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/svg/2996/2996170.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <script src="LoginFunction.js">   </script>
+    <script type="text/javascript">
+      function thefocus(value){
+        //alert(value.id);
+        document.getElementsByClassName(value.id)[0].style.transform = "translate(0,-16px)";
+        document.getElementsByClassName(value.id)[0].style.color = "#1a73e8";
+        document.getElementsByClassName(value.id)[0].style.fontSize = "0.75rem";
+        document.getElementsByClassName(value.id)[0].style.backgroundColor = "#F8F8F8";
+        document.getElementsByClassName(value.id)[0].style.height = "0.2px";
+        document.getElementsByClassName(value.id)[0].style.zIndex =2;
+
+      }
+      function remain(value){
+        if(value.value == ""){
+          document.getElementsByClassName(value.id)[0].style.transform = "translate(0,0px)";
+          document.getElementsByClassName(value.id)[0].style.color = "gray";
+          document.getElementsByClassName(value.id)[0].style.fontSize = "1rem";
+          document.getElementsByClassName(value.id)[0].style.backgroundColor = "transparent";
+        }
+        else{
+          document.getElementsByClassName(value.id)[0].style.color = "black";
+        }
+      }
+
+    </script>
+
+  </head>
+  <body onload="checkLogin()">
+    <div class="artboard" id="c" >
+      <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+      <form method="post">
+        <img id="logo" src="https://questcorpglobal.com/wp-content/uploads/2017/03/QuestCorp-Global-logo-FA-1.png" alt="Quest Corp" width=210 height = 150>
+        <div id="Title"><span>Welcome to Dashboard</span></div><br>
+        <label for="UserName" class="Username" >User Name</label>
+        <input type="text" name="Username" id="Username" required onfocus="thefocus(this)" onfocusout = "remain(this)" ><br><br>
+        <label for="EventName" class="Password" >Password</label>
+        <input type="password" required id="Password" onfocus="thefocus(this)" onfocusout = "remain(this)">
+        <input type="button" value="Submit" onclick="read_value()">
+      </form>
+  </body>
+</html>
