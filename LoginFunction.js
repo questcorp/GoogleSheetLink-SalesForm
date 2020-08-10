@@ -40,12 +40,12 @@ $.getJSON(url, function (json) {
     username[i]=json.records[i].Username;
   }
   var value = sorting(username);
-  username.sort()
+  username.sort();
 
   var index = recursiveFunction(username,inputName);
   if(index>=0){
     //alert('Good');
-    alert(" Password: " + json.records[value[index]].Password);
+    //alert(" Password: " + json.records[value[index]].Password);
     if(inputPass == json.records[value[index]].Password){
       alert('Login successfully');
       var d = new Date();
@@ -102,6 +102,5 @@ function checkLogin(){
   if(getCookie("bigName")!="" && getCookie("bigPassword")!=""){
     insert_value(getCookie("bigName"));
     location.replace("http://www.w3schools.com");
-
   }
 }
