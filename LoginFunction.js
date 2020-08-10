@@ -40,7 +40,7 @@ $.getJSON(url, function (json) {
     username[i]=json.records[i].Username;
   }
   var value = sorting(username);
-  //alert(username.sort());
+  username.sort()
 
   var index = recursiveFunction(username,inputName);
   if(index>=0){
