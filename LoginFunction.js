@@ -40,11 +40,11 @@ $.getJSON(url, function (json) {
     username[i]=json.records[i].Username;
   }
   var value = sorting(username);
-  alert(username.sort());
+  //alert(username.sort());
 
   var index = recursiveFunction(username,inputName);
   if(index>=0){
-    alert('Good');
+    //alert('Good');
     alert(" Password: " + json.records[value[index]].Password);
     if(inputPass == json.records[value[index]].Password){
       alert('Login successfully');
