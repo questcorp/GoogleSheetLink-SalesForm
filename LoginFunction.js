@@ -40,12 +40,20 @@ $.getJSON(url, function (json) {
     username[i]=json.records[i].Username;
   }
   var value = sorting(username);
+<<<<<<< HEAD
   username.sort();
+=======
+  username.sort()
+>>>>>>> 537b4e5295190dc4ef1e417e8da6aeb6033eef11
 
   var index = recursiveFunction(username,inputName);
   if(index>=0){
     //alert('Good');
+<<<<<<< HEAD
     //alert(" Password: " + json.records[value[index]].Password);
+=======
+    alert(" Password: " + json.records[value[index]].Password);
+>>>>>>> 537b4e5295190dc4ef1e417e8da6aeb6033eef11
     if(inputPass == json.records[value[index]].Password){
       alert('Login successfully');
       var d = new Date();
@@ -80,6 +88,7 @@ function insert_value(user) {
 // print the returned data
 function ctrlq(e) {
 alert(e.result);
+location.replace("http://www.w3schools.com");
 }
 
 function getCookie(cname) {
@@ -101,6 +110,5 @@ return "";
 function checkLogin(){
   if(getCookie("bigName")!="" && getCookie("bigPassword")!=""){
     insert_value(getCookie("bigName"));
-    location.replace("http://www.w3schools.com");
   }
 }
