@@ -1,5 +1,5 @@
 function goHome(){
-  location.replace("http://127.0.0.1:3000/temp.html");
+  location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/");
 }
 function refresh(eventName) {
   var url = script_url+"?callback=ctrlq&eventName="+eventName+"&action=Confirm";
