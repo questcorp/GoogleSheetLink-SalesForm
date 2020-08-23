@@ -22,7 +22,7 @@ function insert_valu() {
   var sel = document.getElementById('EName');
   var opt = sel.options[sel.selectedIndex];
   var eventNama = opt.value;
-  var eventDate = document.getElementById('date').innerHTML.split(" ")[1];
+  var eventDate = document.getElementById('date').innerHTML.replace("Date: ","");
   var eventTime = document.getElementById('time').innerHTML.split(" ")[1];
   var eventVenue = document.getElementById('Venue').innerHTML.replace("Venue/Hosting Platform: "," ");
   var row = document.getElementById('Pricing').rows.length-1;

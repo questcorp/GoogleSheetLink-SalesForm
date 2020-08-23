@@ -292,5 +292,8 @@ function saveInfo(){
   document.getElementsByClassName('ShowUP')[0].style.visibility="visible";
   document.getElementsByClassName('Register')[0].style.visibility="visible";
   document.getElementById('TotalCollection').innerHTML = "Total Collection: "+ document.getElementsByClassName('Curren')[0].innerHTML+" "+sum().toFixed(2);
+  if(document.getElementsByClassName('Curren')[0].innerHTML == "USD"){
+    document.getElementById('TotalCollection').innerHTML += " (MYR "+(sum()*document.getElementById('ConversionRate').value).toFixed(2)+")";
+  }
   //alert(thePrice);
 }

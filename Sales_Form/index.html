@@ -13,6 +13,7 @@
     <script src="AddOth3rRow(Sales).js"></script>
     <script src="RetrieveUser2.js"></script>
     <script src="InsertSales.js"></script>
+    <script src="FormValidationS.js"></script>
     <script type="text/javascript">
     //Function for the inout (Total Register and Total Show Up)
     function thefocus(value){
@@ -86,10 +87,10 @@
           </tr>
         </table>
 
-        <p style="font-size: 1.2rem; text-align: center;margin-bottom: 0px;" id="TotalCollection">Total Collection: RM 100.00</p>
+        <p style="font-size: 1.2rem; text-align: center;margin-bottom: 0px;" id="TotalCollection">Total Collection: RM 00.00</p>
         <p style="font-size: 0.8rem; text-align: center;margin: 0px 0px 0px 0px;" id="Conversion">Conversion Rate: USD 1 = MYR 4.17</p>
         <button type="button" name="button" onclick="checkConditionb4AddRow()" style="margin-top: 20px;margin-bottom: 20px;">Add New Payment</button>
-        <button type="button" id="Submit" name="button" style="margin-bottom: 20px;" onclick="insert_valu()">Submit</button>
+        <button type="button" id="Submit" name="button" style="margin-bottom: 20px;" onclick="validation()">Submit</button>
         <div class="Footer">
           <p id="Footer" style="text-align: center;margin:0px">
             <img id="creator" src="" alt="PIC">
@@ -103,7 +104,7 @@
             Back to Menu Page
           </p>
         </div>
-
+      </form>
 
         <input type="hidden" id="ConversionRate">
         <div id="popup1" class="overlay">
