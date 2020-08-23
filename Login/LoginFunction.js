@@ -40,20 +40,12 @@ $.getJSON(url, function (json) {
     username[i]=json.records[i].Username;
   }
   var value = sorting(username);
-<<<<<<< HEAD
   username.sort();
-=======
-  username.sort()
->>>>>>> 537b4e5295190dc4ef1e417e8da6aeb6033eef11
 
   var index = recursiveFunction(username,inputName);
   if(index>=0){
     //alert('Good');
-<<<<<<< HEAD
     //alert(" Password: " + json.records[value[index]].Password);
-=======
-    alert(" Password: " + json.records[value[index]].Password);
->>>>>>> 537b4e5295190dc4ef1e417e8da6aeb6033eef11
     if(inputPass == json.records[value[index]].Password){
       alert('Login successfully');
       var d = new Date();
@@ -76,7 +68,7 @@ $.getJSON(url, function (json) {
 }
 
 function insert_value(user) {
-  var url = script_url+"?callback=ctrlq&Username="+user+"&action=insertOnline";
+  var url = script_url+"?callback=ctrlq&username="+user+"&action=insertOnline";
   var request = jQuery.ajax({
     crossDomain: true,
     url: url ,
@@ -88,7 +80,7 @@ function insert_value(user) {
 // print the returned data
 function ctrlq(e) {
 alert(e.result);
-location.replace("http://www.w3schools.com");
+location.replace("http://127.0.0.1:3000/temp.html");
 }
 
 function getCookie(cname) {

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <link rel="shortcut icon" href="https://image.flaticon.com/icons/svg/1337/1337141.svg">
+      <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+      <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+    <title>Main Menu</title>
+  </head>
+  <link rel="stylesheet" href="bea4.css">
+  <body>
+      <div class="artboard" id="c">
+        <h1>Main Menu</h1>
+        <table>
+          <tr>
+            <td>
+            <button type="button" name="button" id="Create" onmouseover="document.getElementById('label').innerHTML = 'New Event?'"
+            onmouseout="document.getElementById('label').innerHTML = 'Create Event '" onclick="location.replace('http://127.0.0.1:3000/CreateEvent.html');">
+              <img src="https://image.flaticon.com/icons/svg/3079/3079026.svg" alt="CreateEvent"><br>
+              <p id="label">Create Event</p>
+            </button></td>
+            <td><button type="button" name="button" id="Sales" onmouseover="document.getElementById('label2').innerHTML = 'Event Done?'"
+              onmouseout="document.getElementById('label2').innerHTML = 'Sales Event '" onclick="location.replace('http://127.0.0.1:3000/SalesForm.html');">
+              <img src="https://image.flaticon.com/icons/svg/2898/2898117.svg" alt="Sales"><br>
+              <p id="label2">Sales Event</p>
+            </button></td>
+          </tr>
+          <tr>
+            <td><button type="button" name="button" id="Marketing" onmouseover="document.getElementById('label3').innerHTML = 'Done?'"
+              onmouseout="document.getElementById('label3').innerHTML = 'Marketing'">
+              <img src="https://image.flaticon.com/icons/svg/595/595990.svg" alt="Marketing"><br>
+              <p id="label3">Marketing</p>
+            </button></td>
+            <td><button type="button" name="button" id="View" onmouseover="document.getElementById('label4').innerHTML = 'Forms Filled?'"
+              onmouseout="document.getElementById('label4').innerHTML = 'View Report '">
+              <img src="https://image.flaticon.com/icons/svg/2977/2977651.svg" alt="View Report"><br>
+              <p id="label4">View Report</p>
+            </button></td>
+          </tr>
+        </table>
+        <button type="button" name="button" id="Logout" onmouseover="this.innerHTML = 'Confirm?'"
+          onmouseout="this.innerHTML = 'Logout'">Logout</button>
+      </div>
+  </body>
+</html>
