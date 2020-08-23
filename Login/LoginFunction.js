@@ -80,7 +80,7 @@ function insert_value(user) {
 // print the returned data
 function ctrlq(e) {
 alert(e.result);
-location.replace("http://127.0.0.1:3000/temp.html");
+location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/");
 }
 
 function getCookie(cname) {
