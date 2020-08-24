@@ -1,6 +1,3 @@
-function goHome(){
-  location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/");
-}
 function refresh(eventName) {
   var url = script_url+"?callback=ctrlq&eventName="+eventName+"&action=Confirm";
   var request = jQuery.ajax({
@@ -69,7 +66,7 @@ function insert_valu() {
       "Registration Rate: "+register+"\n"
     );
     refresh(document.getElementById('EventID').value);
-    goHome();
+    location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/");
   }
   else{
     alert("Please re-submit the form again");
