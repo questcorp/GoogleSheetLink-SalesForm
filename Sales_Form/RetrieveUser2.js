@@ -53,7 +53,7 @@ $.getJSON(url, function (json) {
     }
     else{
       alert('User not found. Please log in again');
-      location.reload("http://127.0.0.1:3000/Login.html");
+      location.reload("https://questcorp.github.io/GoogleSheetLink-SalesForm/Login/");
     }
   });
 }
