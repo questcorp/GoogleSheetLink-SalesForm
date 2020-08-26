@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/svg/2983/2983719.svg">
+    <link rel="stylesheet" href="bea2.css">
+    <script src="AddRow.js"></script>
+    <script src="ValidationForm.js"></script>
+    <script src="RetrieveUser.js"></script>
+    <script src="CreateEvent.js"></script>
+    <script type="text/javascript">
+    function goHome(){
+      location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/");
+    }
+      function thefocus(value){
+        //alert(value.id);
+        document.getElementsByClassName(value.id)[0].style.transform = "translate(0,-14px)";
+        document.getElementsByClassName(value.id)[0].style.color = "#1a73e8";
+        document.getElementsByClassName(value.id)[0].style.fontSize = "0.75rem";
+        document.getElementsByClassName(value.id)[0].style.backgroundColor = "#F8F8F8";
+        document.getElementsByClassName(value.id)[0].style.height = "0.2px";
+        document.getElementsByClassName(value.id)[0].style.zIndex =2;
+
+      }
+      function remain(value){
+        if(value.value == ""){
+          document.getElementsByClassName(value.id)[0].style.transform = "translate(0,0px)";
+          document.getElementsByClassName(value.id)[0].style.color = "gray";
+          document.getElementsByClassName(value.id)[0].style.fontSize = "1rem";
+          document.getElementsByClassName(value.id)[0].style.backgroundColor = "transparent";
+        }
+        else{
+          document.getElementsByClassName(value.id)[0].style.color = "black";
+        }
+      }
+      function setnone(){
+         document.getElementById('Step1').style.display = 'none';
+         document.getElementById('Step2').style.display = 'none';
+         document.getElementById('Step3').style.display = 'none';
+         document.getElementById('Step4').style.display = 'none';
+         document.getElementById('Step5').style.display = 'none';
+         document.getElementById('Step6').style.display = 'none';
+         document.getElementById('Step7').style.display = 'none';
+         document.getElementById('Step8').style.display = 'none';
+         document.getElementById('Step9').style.display = 'none';
+      }
+      function showDateTime(){
+        setnone();
+        document.getElementsByClassName('Date')[0].style.display = 'block';
+        document.getElementById('Timing').style.display = 'block';
+        document.getElementById('Step4').style.display = "block";
+        document.getElementById('Product_Venue').style.marginTop = "10px";
+        document.getElementsByClassName('HostVenue')[0].style.top = "263px";
+      }
+      function showPricing(){
+        setnone();
+        document.getElementById('Pricing').style.display = 'block';
+        document.getElementById('TotalBar').style.display = 'block';
+        document.getElementById('Step7').style.display = "block";
+        document.getElementById('Timing').style.marginTop = '5px';
+        document.getElementById('Pricing').style.marginTop = '20px';
+      }
+
+    </script>
+
+  </head>
+  <body onload="knowWhoYouAre()">
+    <div class="artboard" id="c">
+      <form>
+        <img id="logo" src="https://image.flaticon.com/icons/svg/2617/2617943.svg" alt="New Event" width=100 height = 100>
+        <h2 id="Title">New Event Form</h2>
+        <label for="EventName" class="EventName" required>Event Name</label>
+        <div class="inputBox" id="EventNameBox">
+            <input type="text" id="EventName"  required onfocus="thefocus(this)" onfocusout = "remain(this)"
+            onchange = "setnone();
+            document.getElementById('Step2').style.display = 'block';
+            document.getElementsByClassName('HostVenue')[0].style.top = '285px';
+            document.getElementById('Product_Venue').style.marginTop = '30px'">
+        </div>
+        <label for="Host-Venue" class="HostVenue">Venue/Platform</label>
+        <table id="Product_Venue">
+          <tr>
+            <td>
+                <select class="Product" id="Product" onchange= "setnone();
+                document.getElementById('Step3').style.display = 'block';">
+                <option value="Product" id="Placeholder">Product</option>
+                <option value="NIRVAN">NIRVAN</option>
+                <option value="HEX">HEX</option>
+                <option value="IO">IO</option>
+                <option value="ICONIC">ICONIC</option>
+                <option value="HUT">HUT</option>
+            </select>
+          </td>
+          <td>
+            <input type="text" id="HostVenue" onfocus="thefocus(this)" onfocusout = "remain(this)"
+            onchange="showDateTime()">
+          </td>
+          </tr>
+        </table>
+
+        <div class="Date" style="display: none;margin-top:20px;">
+          <label class="EDate">Date:</label>
+          <input type="date" id="EDate"
+          onchange= "setnone();
+          document.getElementById('Step5').style.display = 'block';
+          document.getElementsByClassName('Date')[0].style.marginTop = '0px';
+          document.getElementById('Timing').style.marginTop = '20px';"
+          onfocus="document.getElementsByClassName('EDate')[0].style.visibility = 'hidden';"
+          onfocusout = "document.getElementsByClassName('EDate')[0].style.visibility = 'visible';"
+          >
+        </div>
+        <table id="Timing" style="display: none;">
+          <tr>
+            <td>Time Start</td>
+            <td>Time End</td>
+          </tr>
+          <tr>
+            <td><input type="time" id="Time-Start" onchange = "setnone();document.getElementById('Step6').style.display = 'block'"></td>
+            <td><input type="time" id="Time-End" onchange = "showPricing()"></td>
+          </tr>
+        </table>
+        <table id="Pricing" style="display:none;">
+          <tr>
+            <td>Package Name</td>
+            <td>Currency</td>
+            <td>Price</td>
+          </tr>
+          <tr>
+            <td><input type="text" class="Package" id="Package-0" placeholder="Basic Plan" onchange="checkNumber(this)"></td>
+            <td>
+              <select class="Currency" id="Currency" onchange= "setnone();
+              document.getElementById('Step9').style.display = 'block'">
+              <option value="$" id="$">- - - </option>
+              <option value="USD">USD</option>
+              <option value="MYR">MYR</option>
+            </td>
+            <td><input type="number" class="Price" id="Price-0" placeholder="8.99" onchange="checkNumber(this)"></td>
+          </tr>
+        </table>
+      </form>
+      <table id="TotalBar" style="display:none;">
+        <tr>
+          <td id="Package">No package is entered</td>
+          <td><button type="button" class="add" style="margin-left:1%" onmouseover="this.innerHTML = 'New Package? '" onmouseout="this.innerHTML = 'Add Row '" onclick="addRow()">Add Row</button>
+          </td>
+        </tr>
+      </table>
+      <button type="button" style="margin-top: 20px" id="submit" onmouseover="this.innerHTML = 'Confirm? '" onmouseout="this.innerHTML = 'Submit '" onclick="checkAll()">Submit</button>
+      <p id="Footer">
+        <img id="creator" alt="creator">
+      </p>
+      <p id="BackHome" style="text-align: center;margin-top: 10px;color:#333;cursor:pointer;"
+      onmouseover="document.getElementById('BackHome').innerHTML='Confirm?';
+      document.getElementById('BackHome').style.color='#00203FFF';"
+      onmouseout="document.getElementById('BackHome').innerHTML='Back to Menu Page'
+      document.getElementById('BackHome').style.color='#333';"
+      onclick ="goHome()">
+        Back to Menu Page
+      </p>
+      <p class="Step" id="Step10">Optional: Add more price package <br>&#9660</p>
+        <p class="Step" id="Step11">Last Step: Submit and Done &#x1F44F &#9660</p>
+      <div class="instruction">
+        <p class="Step" id="Step1" style="display: block">Step 1. Please enter EVENT Name &#9660 </p>
+        <p class="Step" id="Step2">Step 2. Please select the Product. <br>&#9660</p>
+        <p class="Step" id="Step3" style="left:45%;">Step 3. Please enter the Venue<br> &#9660</p>
+        <p class="Step" id="Step4" >Step 4. Please enter the date for the Event <br> &#9660 </p>
+        <p class="Step" id="Step5">Step 5. Please enter the time start. <br><br>&#9660</p>
+        <p class="Step" id="Step6">Step 6. Please enter the time end.<br><br> &#9660</p>
+        <p class="Step" id="Step7">Step 7. Please enter Package Name <br><br>&#9660 </p>
+        <p class="Step" id="Step8">Step 8. Please enter the currency. <br><br>&#9660</p>
+        <p class="Step" id="Step9">Step 9. Enter the price.<br><br> &#9660</p>
+
+      </div>
+    </div>
+
+  </body>
+</html>
