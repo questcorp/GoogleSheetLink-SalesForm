@@ -80,7 +80,7 @@ function insert_value(user) {
 // print the returned data
 function ctrlq(e) {
 alert(e.result);
-location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/");
+location.replace("https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu/");
 }
 
 function getCookie(cname) {
