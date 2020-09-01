@@ -1,0 +1,376 @@
+*{
+  font-family: "Acme";
+}
+select{
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1500px) {
+  .artboard {
+    width: 400px;
+  }
+  .Register,.ShowUP{
+      top: 340px;
+  }
+  #Package{
+    font-size:1.2em;
+  }
+  .Type,.Package1{
+    width:30%;
+  }
+  .Currency1{
+    width:19%;
+  }
+  #details,#Register,#ShowUP{
+    font-size: 1.2rem;
+  }
+  .lds-ellipsis{
+    margin-left: 37%;
+  }
+  #Step1{
+    left: 5%;
+  }
+  #Step2{
+    left: 8%;
+  }
+  #Step3{
+    left: 28%;
+  }
+
+}
+
+
+@media screen and (max-width: 488px) {
+  .artboard {
+    max-width: 90%;
+    }
+    .Register,.ShowUP{
+        top: 323px;
+    }
+    #Package{
+      font-size:0.95em;
+    }
+    *{
+      font-size: 15px;
+    }
+  #details p{
+    font-size: 1rem;
+  }
+    .Quantity1,.Quantity,.Quantity2{
+      display: none;
+      width: 0px;
+      padding: 0px;
+      margin:0px;
+    }
+    #Marketing td,  td{
+      padding: 10px;
+    }
+    .Type{
+      padding-right: 0px;
+    }
+    .lds-ellipsis{
+      margin-left: 38%;
+    }
+    #Step1{
+      left: 35%;
+    }
+    #Step2{
+      left: 4%;
+    }
+    #Step3{
+      left: 25%;
+    }
+    #Step4{
+      left: 30%;
+    }
+  }
+.artboard{
+  box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin: 50px auto;
+  border: 3px #2e2e2e solid;
+  background-color: #FFFFCF;
+  position: relative;
+  height: auto;
+}
+#logo{
+  margin-left: 35%;
+  margin-top: 20px;
+}
+#Title{
+  text-align: center;
+  margin-top:-5px;
+  margin-bottom: 0px;
+  font-family: "Satisfy";
+  font-size: 40px;
+}
+
+select,#details p,#Show input{
+  margin-top: 20px;
+  padding: 0.625rem 10px;
+  border: 1px solid #ccc;
+  background: inherit;
+  text-align: center;
+}
+
+#details p{
+  border: none;
+  margin: 0;
+  margin-left: calc(5%+5px);
+  padding: 0;
+  text-align: left;
+  font-size: 1rem;
+}
+select{
+  width:90%;
+  margin-left: 5%;
+}
+
+input:focus,select:focus{
+  outline: none;
+  border: 2px solid #1a73e8;
+}
+.EName{
+  position: absolute;
+  top:200px;
+}
+#date,#time{
+  padding: 0.3rem 10px;
+}
+/*---------------(Marketing Details)--------------------------*/
+#Marketing, #TotalUp, #Country{
+  margin-top: 30px;
+  margin-left: 5%;
+  table-layout: auto;
+  width:90%;
+}
+#Marketing td, #Country td{
+  margin-top: 5px;
+  font-size: 1rem;
+  padding: 0.1rem;
+  border: 1px solid #ccc;
+  background: inherit;
+  text-align: center;
+}
+#Marketing .Quantity,#Country .Quantity{
+  padding: 0;
+  margin: 0;
+}
+#Marketing input,#Country input{
+  width: 30px;
+  padding: 0px;
+  background-color: inherit;
+  border: none;
+  font-size: 1rem;
+}
+#Marketing th, #Country th{
+  font-weight: lighter;
+}
+#Marketing .Package{
+  text-align: left;
+  padding-left: 15px;
+}
+#Marketing button{
+  border: none;
+}
+/*-----(Input Setting)---*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+    background-color: #F8F8F8 !important;
+    color: #555 !important;
+    -webkit-box-shadow: 0 0 0 1000px #F8F8F8 inset !important;
+    -webkit-text-fill-color: #555555 !important;
+    }
+/*-----(button)----*/
+button{
+  width:90%;
+  margin-left: 5%;
+  letter-spacing: 2px;
+  padding: 14px;
+  color: #383736;
+  font-weight: 700;
+  border: 2px solid #333;
+  border-radius: 4px;
+  text-transform: uppercase;
+  outline: 0;
+  overflow:hidden;
+  background-color: inherit;
+  z-index: 1;
+  cursor: pointer;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+}
+    button:hover{
+      color: white;
+      border: none;
+      background-color: #2e2e2e;
+
+      -webkit-animation: rotate 1s infinite linear;
+    }
+    button:before {
+      content: "";
+      -webkit-transition: top 0.09s ease-in;
+    }
+    button:hover:before {
+      top: 0;
+    }
+    #Submit{
+      border: 2px solid #0253B3;
+      color: #0253B3;
+      margin-top: -10px;
+    }
+    #Submit:hover{
+      background-color: #0253B3;
+      color: #f8f8f8;
+      transform: scale(1.05);
+    }
+/*Instruction*/
+.Step{
+  position:absolute;
+  top:180px;
+  color:#0253B3;
+  animation: 2s infinite jump;
+  display: none;
+  padding-bottom: 0px;
+}
+
+@keyframes jump {
+  0%   {transform: translateY(0px);}
+  50%  {transform: translateY(5px);}
+  100% {transform: translateY(0px);}
+}
+#Step1,#Step2{
+  top:360px;
+  text-align: center;
+}
+#Step3{
+  top:360px;
+  text-align: center;
+}
+#Step4{
+  position: relative;
+  text-align: center;
+  top: -100px;
+}
+#Step5{
+  position: relative;
+  text-align: center;
+  top: -120px;
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+}
+.Footer{
+  margin-top: 140px;
+}
+/*------------(Country)--------------
+
+ {
+  margin: 0px;
+  z-index:2;
+  margin-left: 5%;
+}
+  #myInput{
+  padding: 10px;
+  width: 100%;
+}
+  input[type = 'number']{
+  width:100%;
+  text-align:center;
+}
+.autocomplete-items {
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+when hovering an item:
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+when navigating through the items using the arrow keys:
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+} */
+/*#Country
+ {
+  width: 90%;
+  margin-left: 5%;
+}
+
+#myInput{
+  width:100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 5%;
+  margin-left: 0%;
+  background-color: inherit;
+  border: 2px solid #ccc;
+  z-index: 10;
+  float: left;
+}
+#Country-Quantity{
+  margin:0%;
+  width:100%;
+  padding: 10px;
+  background-color: inherit;
+  border: 2px solid #ccc;
+  z-index: 10;
+}
+
+#myInput :focus{
+  border: 2px solid blue;
+}*/
+
+.autocomplete{
+  width: 60%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.autocomplete-items {
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  width: 100%;
+  z-index: 99;
+  margin-top: -10px;
+
+}
+.autocomplete-items div {
+  padding: 15px;
+  width: calc(100% - 8px);
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}

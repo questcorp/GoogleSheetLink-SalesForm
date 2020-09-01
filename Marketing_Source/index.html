@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sales</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/svg/596/596092.svg">
+    <link rel="stylesheet" href="bea5.css">
+    <script src="ReadData.js"></script>
+    <script src="Calculation.js"></script>
+    <script src="RetrieveUser3.js"></script>
+    <script src="AddOth3rRow(Marketing).js"></script>
+    <script src="InsertMarketing.js"></script>
+    <script type="text/javascript">
+    //Function for the inout (Total Register and Total Show Up)
+    function thefocus(value){
+      //alert(value.id);
+      document.getElementsByClassName(value.id)[0].style.transform = "translate(-20px,-8px)";
+      document.getElementsByClassName(value.id)[0].style.color = "#1a73e8";
+      document.getElementsByClassName(value.id)[0].style.fontSize = "0.75rem";
+      document.getElementsByClassName(value.id)[0].style.backgroundColor = "#EFEFFF";
+      document.getElementsByClassName(value.id)[0].style.padding = "0 3px";
+      document.getElementsByClassName(value.id)[0].style.zIndex =2;
+
+    }
+    function remain(value){
+      if(value.value == ""){
+        document.getElementsByClassName(value.id)[0].style.transform = "translate(0,10px)";
+        document.getElementsByClassName(value.id)[0].style.color = "gray";
+        document.getElementsByClassName(value.id)[0].style.fontSize = "1rem";
+        document.getElementsByClassName(value.id)[0].style.backgroundColor = "transparent";
+      }
+      else{
+        document.getElementsByClassName(value.id)[0].style.color = "black";
+      }
+    }
+    </script>
+
+  </head>
+  <body onload="read_value()">
+    <div class="artboard" >
+      <form>
+        <img id="logo" src="https://image.flaticon.com/icons/svg/1077/1077170.svg" alt="New Event" width=120 height = 120>
+        <h2 id="Title">Daily Report</h2>
+        <select class="EName" id="EName" onchange="provideDetails()">
+          <option>Event Name</option>
+        </select>
+        <div id="details" style="
+        margin-top: 75px; margin-left: 22px;">
+          <p id="date">Date: 1 July 2020 </p>
+          <p id="time">Time: 9:00 AM</p>
+          <p id="Venue">Venue: Wisma Quest</p>
+        </div>
+        <hr style="width:90%;margin-left:5%;">
+        <p id="Table-Source" style="display:none; margin:0px;margin-left: 5%;font-size:1.2rem;"><u>Source (Marketing)</u></p>
+        <table id="Marketing" style="display:none;">
+          <tr>
+            <th>Source</th>
+            <th>Quantity</th>
+            <th colspan="2">Amount Spent</th>
+            <th>CPL</th>
+          </tr>
+        </table>
+        <p style="font-size: 1.2rem; text-align: center;margin-bottom: 0px; display:none;" id="TotalRegistration">Total Registration: 0</p>
+        <p style="font-size: 1.2rem; text-align: center;margin-top: 5px;display:none;margin-bottom:5px;" id="TotalAmount">(Amount Spent: 0)</p>
+        <p style="font-size: 0.8rem; text-align: center;margin: 0px 0px 0px 0px;display:none;" id="Conversion">Conversion Rate: USD 1 = MYR 4.17</p>
+        <button type="button" name="button" onclick="addRow()" style="margin-top: 10px;margin-bottom: 20px; display:none;" id="Add">Add New Source</button>
+        <p class="Step" id="Step4">&#9660 Optional: Add More Source (if there are any).&#9660</p>
+        <button type="button" name="button" onclick="addInputRow()" style="margin-top: 40px;display: none; margin-bottom: 20px;" id="Add">Add New Country</button>
+        <button type="button" id="Submit" name="button" style="margin-top: -10px;margin-bottom: -100px;" onclick="insert_valu()">&#x25BA Country(Marketing)</button>
+        <p class="Step" id="Step5">&#9660 Final Step: Submit the form. &#x1F60D	 &#9660</p>
+        <div class="Footer">
+          <p id="Footer" style="text-align: center;margin:0px;margin-top: -100px;">
+              <img id="creator" src="" alt="PIC">
+          </p>
+          <p id="BackHome" style="text-align: center;margin-top: 10px;color:#333;cursor:pointer;"
+          onmouseover="document.getElementById('BackHome').innerHTML='Confirm?';
+          document.getElementById('BackHome').style.color='#00203FFF';"
+          onmouseout="document.getElementById('BackHome').innerHTML='Back to Menu Page'
+          document.getElementById('BackHome').style.color='#333';"
+          onclick ="location.replace('https://questcorp.github.io/GoogleSheetLink-SalesForm/MainMenu-Temp/');">
+            Back to Menu Page
+          </p>
+        </div>
+        <div class="instruction">
+          <p class="Step" id="Step1" style="display: block">Step 1. Please select the EVENT &#9660 </p>
+          <p class="Step" id="Step2">Step 2. Please enter the Quantity. <br>&#9660</p>
+          <p class="Step" id="Step3">Step 3. Please enter the Amount Spent.<br> &#9660</p>
+          <p class="Step" id="Step6">Step 6. <br>Enter the Source.<br> &#9660</p>
+        </div>
+      </div>
+  </body>
+  <input type="hidden" id="EventSeries">
+  <input type="hidden" id="lastRow">
+  <input type="hidden" id="EventID">
+  <input type="hidden" id="ConversionRate">
+  <datalist id="countryRoad">
+  </datalist>
+</html>
