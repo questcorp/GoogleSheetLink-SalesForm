@@ -45,7 +45,7 @@ function insert_valu() {
     console.log(getCookie("Venue"));
     console.log(getCookie("Currency"));
     console.log(getCookie("Pricing"));
-    location.replace('http://127.0.0.1:3000/Marketing%202.0%20(Country)/');
+    location.replace('https://questcorp.github.io/GoogleSheetLink-SalesForm/Marketing_Country/');
   }
   else{
     alert("Please re-submit the form again");
